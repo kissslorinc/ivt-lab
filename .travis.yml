@@ -1,6 +1,6 @@
 language: java
 jdk:
-	- orackejdk8
+ - orackejdk8
 cache:
-	directories:
-	- $HOME/.m2
+ directories:
+ - $HOME/.m2
