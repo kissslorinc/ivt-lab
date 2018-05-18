@@ -126,4 +126,21 @@ public class GT4500Test {
     assertEquals(false, result);
   }
 
+  @Test
+  public void fireTorpedo_Primary_One_Left(){
+    // Arrange
+    when(mockPrimary.isEmpty()).thenReturn(false);
+    when(mockPrimary.fire(1)).thenReturn(true);
+    when(mockSecondary.fire(1)).thenReturn(true);
+
+    // Act
+    ship.fireTorpedo(FiringMode.SINGLE);
+    ship.fireTorpedo(FiringMode.SINGLE);
+    when(mockPrimary.isEmpty()).thenReturn(true);
+    ship.fireTorpedo(FiringMode.SINGLE);
+
+    // Assert
+    verify(mockPrimary, times(1)).fire(1);
+  }
+
 }
