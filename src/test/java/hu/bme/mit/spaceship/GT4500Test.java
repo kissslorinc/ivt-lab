@@ -8,11 +8,14 @@ import org.junit.Test;
 
 public class GT4500Test {
 
+  private TorpedoStore mockPrimary, mockSecondary;
   private GT4500 ship;
 
   @Before
   public void init(){
-    this.ship = new GT4500();
+    mockPrimary = mock(TorpedoStore.class);
+    mockSecondary = mock(TorpedoStore.class);
+    this.ship = new GT4500(mockPrimary,mockSecondary);
   }
 
   @Test
